@@ -211,12 +211,12 @@ body {
                 transform: translate(0);
             }
 
-            #greeting-sentence {
+            .greeting-sentence {
                 margin: 0;
 
                 p {
                     margin: 0;
-                    text-align: left;
+                    text-align: center;
                     line-height: 2rem;
                 }
             }
@@ -231,8 +231,13 @@ body {
                 background-image: url(../img/mobile-background.jpg);
                 padding: 0 50px 30px;
 
-                p {
-                    margin: 1rem 0;
+                .greeting-sentence {
+                    margin: 0;
+    
+                    p {
+                        margin: 1rem 0;
+                        text-align: left;
+                    }
                 }
             }
         }
