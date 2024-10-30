@@ -1,6 +1,5 @@
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
-const animElements = document.querySelectorAll('.top-message, .greeting-title, .menu-price-title, .photos-title, .photo, .info-title');
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
@@ -20,17 +19,50 @@ document.querySelectorAll('.nav-item').forEach(item => {
     });
 });
 
+const animElements = document.querySelectorAll('.top-message, .greeting-title, .greeting-sentence, .menu-price-title, .mens, .ladies, .photos-title, .photo, .info-title, .info-contents');
+
+const animateText = (elem) => {
+    const content = elem.innerHTML.split(/<br.*?>/g);
+
+    elem.innerHTML = content
+        .map(text =>
+            text.split('').map(char =>
+                `<span>${char}</span>`
+            ).join('')
+        )
+        .join('<br>');
+
+    const spans = elem.querySelectorAll('span');
+    spans.forEach((span, i) => {
+        setTimeout(() => span.classList.add('visible'), 50 * i);
+    });
+};
+
 const options = {
     root: null,
     rootMargin: '-50px',
     threshold: 0.2
 };
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            if (entry.target.classList.contains('greeting-sentence')) {
+                animateText(entry.target.querySelector('p'));
+            } else if (entry.target.classList.contains('mens') || entry.target.classList.contains('ladeis')) {
+                entry.target.classList.add('active');
+                const rows = entry.target.querySelectorAll('tr');
+                rows.forEach((row, index) => {
+                    setTimeout(() => {
+                        row.style.opacity = '1';
+                    }, index * 100);
+                });
+            } else {
+                entry.target.classList.add('active');
+            }
             observer.unobserve(entry.target);
         }
     });
 }, options);
+
 animElements.forEach(el => observer.observe(el));

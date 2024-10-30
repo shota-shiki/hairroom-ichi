@@ -31,14 +31,14 @@
     <main>
         <section id="top">
             <div class="background-video">
-                <video class="pc-top" autoplay muted loop src="./img/top.mp4"></video>
-                <video class="mobile-top" autoplay muted loop playsinline src="./img/mobile-top.mp4"></video>
+                <video class="pc-top" autoplay muted loop fetchpriority="high" preload="auto" src="./img/top.mp4"></video>
+                <video class="mobile-top" autoplay muted loop playsinline fetchpriority="high" preload="auto" src="./img/mobile-top.mp4"></video>
             </div>
             <h2 class="top-message">癒しの時間のひとときを</h2>
         </section>
         <section id="greeting">
             <h2 class="greeting-title">ご挨拶</h2>
-                <div id="char-animation" class="greeting-sentence">
+                <div class="greeting-sentence">
                     <p>ヘアールームICHIのウェブサイトへお越しいただき、誠にありがとうございます。<br><br>2024年春、当店は地域の皆様の「かかりつけ理容室」を目指し開業いたしました。<br>経験豊富な女性スタッフが丁寧な施術でおもてなしいたします。<br><br>心地よい癒しのヘッドスパから確かな技術のカットまで、幅広いサービスをご用意しております。<br>お子様からご年配の方まで、どなた様もお気軽にお越しください。<br><br>皆様のご来店を心よりお待ちしております。</p>
                 </div>
         </section>
@@ -133,18 +133,6 @@
                             <td>ヘッドスパ</td>
                             <td>¥4,600</td>
                         </tr>
-                        <tr>
-                            <td>カットシャンプー</td>
-                            <td>¥2,200</td>
-                        </tr>
-                        <tr>
-                            <td>カットのみ</td>
-                            <td>¥1,900</td>
-                        </tr>
-                        <tr>
-                            <td>カット総合</td>
-                            <td>¥3,200</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -164,17 +152,17 @@
         </section>
         <section id="info">
             <h2 class="info-title">店舗情報</h2>
-            <p>〒239-0807 神奈川県横須賀市根岸町1-4-17</p>
-            <p>［営業時間］9:30 ~ 17:00 ［定休日］月曜・火曜</p>
+            <div class="info-contents">
+                <p>〒239-0807 神奈川県横須賀市根岸町1-4-17</p>
+                <p>［営業時間］9:30 ~ 17:00 ［定休日］月曜・火曜</p>
+                <p>無料駐車スペースがございます。</p>
+            </div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6516.116476059646!2d139.68311091009667!3d35.2548069053413!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60183fd19ec1e6c1%3A0xa77492ee29bd839a!2z44OY44Ki44O844Or44O844OgSUNISQ!5e0!3m2!1sja!2sjp!4v1729506578968!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </section>
 
         <section id="fixed-button">
             <div class="phone-reserve">
-                <a href="tel:070-9004-3368"><i class="fa-solid fa-phone"></i> 電話予約</a>
-            </div>
-            <div class="net-reserve">
-                <a href="https://calendar.app.google/7hqBQnpVX8xWdnLM6" target="_blank"><i class="fa-solid fa-calendar-days"></i> ネット予約</a>
+                <a href="tel:070-9004-3368"><i class="fa-solid fa-phone"></i> お電話はこちら</a>
             </div>
         </section>
     </main>
