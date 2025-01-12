@@ -1,6 +1,61 @@
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
+document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function() {
+        const videos = document.querySelectorAll('video');
+        let videosLoaded = 0;
+        
+        const checkAllVideosLoaded = () => {
+            videosLoaded++;
+            if (videosLoaded === videos.length) {
+                hideLoading();
+            }
+        };
+        
+        videos.forEach(video => {
+            if (video.readyState >= 4) {
+                checkAllVideosLoaded();
+            } else {
+                video.addEventListener('loadeddata', checkAllVideosLoaded);
+            }
+        });
+
+        const images = document.querySelectorAll('img');
+        let imagesLoaded = 0;
+        
+        const checkAllImagesLoaded = () => {
+            imagesLoaded++;
+            if (imagesLoaded === images.length) {
+                hideLoading();
+            }
+        };
+        
+        images.forEach(img => {
+            if (img.complete) {
+                checkAllImagesLoaded();
+            } else {
+                img.addEventListener('load', checkAllImagesLoaded);
+            }
+        });
+    });
+});
+
+function hideLoading() {
+    const loading = document.getElementById('loading');
+    const content = document.getElementById('content');
+    
+    if (loading && content) {
+        loading.style.transition = 'opacity 0.5s';
+        loading.style.opacity = '0';
+        content.style.display = 'block';
+        
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 500);
+    }
+}
+
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
